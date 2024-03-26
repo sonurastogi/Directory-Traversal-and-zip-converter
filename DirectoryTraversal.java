@@ -20,14 +20,12 @@ String path="Directory1";
         if (files != null) {
             for (File file : files) {
                 if (file.isDirectory()) {
-                    System.out.println("Directory: " + file.getAbsolutePath());
                     traverse(file); // Recursive call for subdirectories
-                } else {
+                } else if(file.getAbsolutePath().endsWith(".log")){
 		DirectoryTraversal t= new DirectoryTraversal();
 		System.out.println("File: " + file.getName());
 		//t.zip(file.getAbsolutePath());
 		t.zip(file);
-		//File f= new File(file);
 		file.delete();
                 }
             }
